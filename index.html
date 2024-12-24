@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="styles.css">
+   <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <div class="container">
+    <h1>Менеджер Паролей</h1>
+    <form id="add-password-form">
+      <label for="service">Сервис:</label>
+      <input type="text" id="service" name="service" required>
+
+      <label for="login">Логин:</label>
+      <input type="text" id="login" name="login" required>
+
+      <label for="password">Пароль:</label>
+      <input type="text" id="password" name="password" required>
+      <button type="button" id="generate-password">Сгенерировать</button>
+
+      <button type="submit">Добавить</button>
+    </form>
+
+    <h2>Сохранённые пароли</h2>
+    <ul id="password-list"></ul>
+  </div>
+
+  <script src="password-manager.js"></script>
+    <script>
+	if('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
+	}
+</script>
+</body>
+</html>
